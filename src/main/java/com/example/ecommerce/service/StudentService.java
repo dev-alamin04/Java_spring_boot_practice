@@ -2,6 +2,8 @@ package com.example.ecommerce.service;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.stereotype.Service;
 
 import com.example.ecommerce.entity.Student;
@@ -17,6 +19,11 @@ public class StudentService {
 
     public List<Student> getAll() {
         return repository.findAll();
+    }
+
+    public Student studentInformation(Long id){
+        Student student = repository.findById(id).orElseThrow(()->new RuntimeException("Student not found"));
+        return student;
     }
 
     public Student create(Student student) {

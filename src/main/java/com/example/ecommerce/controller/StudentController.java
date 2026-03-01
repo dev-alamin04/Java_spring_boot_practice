@@ -9,7 +9,6 @@ import com.example.ecommerce.service.StudentService;
 import com.example.ecommerce.response.ApiResponse;
 
 import jakarta.validation.Valid;
-import lombok.var;
 
 @RestController
 @RequestMapping("/students")
@@ -26,6 +25,13 @@ public class StudentController extends BaseController {
     public ApiResponse<List<Student>> getAll() {
         var students = service.getAll();
         return success(students, "All students fetched");
+    }
+
+    // Get single student information
+    @GetMapping("/{id}")
+    public ApiResponse<Student> show(@PathVariable Long id) {
+        var student = service.studentInformation(id);
+        return success(student, "Student get Successfully");
     }
 
     // Create student

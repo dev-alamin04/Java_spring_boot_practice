@@ -9,9 +9,9 @@ public class ApiResponse<T> {
     private T data;
 
     public ApiResponse(T data, String message) {
-        this.data = data;
         this.success = true;
         this.message = message;
+        this.data = data;
         
     }
 
