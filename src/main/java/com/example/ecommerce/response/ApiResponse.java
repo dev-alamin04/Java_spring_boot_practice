@@ -12,10 +12,9 @@ public class ApiResponse<T> {
         this.success = true;
         this.message = message;
         this.data = data;
-        
     }
 
-    public ApiResponse(String message){
+    public ApiResponse(String message) {
         this.success = false;
         this.message = message;
     }
