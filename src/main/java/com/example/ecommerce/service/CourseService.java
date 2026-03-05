@@ -36,12 +36,14 @@ public class CourseService {
         course.setClass_from_time(courseDetails.getClass_from_time());
         course.setClass_to_time(courseDetails.getClass_to_time());
         course.setCourse_duration(courseDetails.getCourse_duration());
+        course.setFee(courseDetails.getFee());
+        course.setTeacher((courseDetails.getTeacher()));
         return repository.save(course);
     }
 
-    public void deleteCourse(Long id){
-        Course course = repository.findById(id).orElseThrow(()-> new RuntimeException("Course Delete faild"));
-       repository.delete(course);
+    public void deleteCourse(Long id) {
+        Course course = repository.findById(id).orElseThrow(() -> new RuntimeException("Course information not found"));
+        repository.delete(course);
     }
 
 }
